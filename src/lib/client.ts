@@ -15,6 +15,7 @@ import { VaultAuditPayloadRequest } from './metadata/sys-audit';
 import { VaultMountsPayloadRequest } from './metadata/sys-mounts';
 import { VaultRemountPayloadRequest } from './metadata/sys-remount';
 import { VaultAuthPayloadRequest } from './metadata/sys-auth';
+import { VaultCapabilitiesPayloadRequest } from './metadata/sys-capabilities';
 
 export class VaultClient {
 
@@ -43,6 +44,7 @@ export class VaultClient {
     public unseal: (payload: VaultUnsealPayloadRequest) => Promise<VaultResponse>;
     public update: (path: string, payload: object) => Promise<VaultResponse>;
     public write: (path: string, payload: object) => Promise<VaultResponse>;
+    public capabilities: (payload: VaultCapabilitiesPayloadRequest) => Promise<VaultResponse>;
 
     // not tested
 

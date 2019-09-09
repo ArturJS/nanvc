@@ -4,9 +4,9 @@ let vault = new VaultClient('http://vault.local:8200');
  
 async function main() {
     try {
-        /*[ '946f46c92eb38cc923f62851fcafc1c3d41153b4345546daaf38b76378ca1ec7' ],
-        keys_base64: [ 'lG9GyS6zjMkj9ihR/K/Bw9QRU7Q0VUbarzi3Y3jKHsc=' ],
-        root_token: 's.lKp0isgqwo8ZHE54i9r3TDk6' },*/
+        /*[ '3527208ad0741e85201a47df839779c35bcf9cb833bf9883ccb967382fa78bbc' ],
+     keys_base64: [ 'NScgitB0HoUgGkffg5d5w1vPnLgzv5iDzLlnOC+ni7w=' ],
+     root_token: 's.lzHOQJYxXgzHo0GSHfdK9If7' },*/
 
         /*let initResponse = await vault.init({
             secret_shares: 1,
@@ -24,7 +24,8 @@ async function main() {
         } else {
             throw new Error(initResponse.errorMessage);
         }*/
-        vault.token = 's.lKp0isgqwo8ZHE54i9r3TDk6';
+
+        vault.token = 's.lzHOQJYxXgzHo0GSHfdK9If7';
 
         console.log(await vault.mounts());
 
@@ -43,6 +44,8 @@ async function main() {
         let mySecretDeleteQueryResponse = await vault.delete('/secret/my-app/my-secret');
         let mySecretIsDeleted = mySecretDeleteQueryResponse.succeeded;
         console.log(mySecretDeleteQueryResponse);
+
+        console.log(JSON.stringify(await vault.capabilities({token: 's.lzHOQJYxXgzHo0GSHfdK9If7', paths: ['/secret/my-app/my-secret']})));
     } catch (e) {
         throw (e);
     }

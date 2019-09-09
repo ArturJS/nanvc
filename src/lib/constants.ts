@@ -31,6 +31,7 @@ import {
     VaultEnableAuthCommandMetadata,
     VaultDisableAuthCommandMetadata,
 } from './metadata/sys-auth';
+import { VaultCapabilitiesCommandMetadata } from './metadata/sys-capabilities';
 
 export const COMMANDS: { [command: string]: VaultCommandMetadata } = {
     audits: VaultAuditsCommandMetadata,
@@ -55,4 +56,5 @@ export const COMMANDS: { [command: string]: VaultCommandMetadata } = {
     update: VaultUpdateSecretCommandMetadata,
     unseal: VaultUnsealCommandMetadata,
     write: VaultWriteSecretCommandMetadata,
+    capabilities: VaultCapabilitiesCommandMetadata,
 };

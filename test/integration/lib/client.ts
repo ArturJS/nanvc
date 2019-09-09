@@ -5,6 +5,7 @@ import { VaultClient } from './../../../src/lib/client';
 import { VaultResponse } from '../../../src/lib/metadata/common';
 import { VaultRemountPayloadRequest } from '../../../src/lib/metadata/sys-remount';
 import { VaultAuthPayloadRequest } from '../../../src/lib/metadata/sys-auth';
+import { VaultCapabilitiesPayloadRequest } from '../../../src/lib/metadata/sys-capabilities';
 
 const expect = chai.expect;
 
@@ -356,4 +357,23 @@ class VaultClientIntegrationTest {
         expect(authResultAfterDisablingUserpass.apiResponse.data).not.ownProperty('userpass/');
 
     }
+
+    @test('Should get capapabilities')
+    public async shouldGetCapabilities()
+    {
+        // Given
+        const payloadRequest: VaultCapabilitiesPayloadRequest = {
+            token: this.client.token,
+            paths: ['/secret/integration-tests']
+        }
+
+        // When
+        const capabilitiesResult = await this.client.capabilities(payloadRequest);
+
+        // Then
+        expect(capabilitiesResult).to.be.an.instanceof(VaultResponse);
+        expect(capabilitiesResult.succeeded).to.be.true;
+        expect(capabilitiesResult.httpStatusCode).equals(200);
+    }
+
 }

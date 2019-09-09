@@ -142,7 +142,7 @@ Vault Rest API Call | Http Method | Client Library Method | Tested
 /sys/auth|GET|VaultClient.auths()|Yes
 /sys/auth|POST|VaultClient.enableAuth(path: string, payload: object)| Yes
 /sys/auth|DELETE|VaultClient.disableAuth(path: string)| Yes
-/sys/capabilities|POST|N/A|N/A
+/sys/capabilities|POST|VaultClient(capabilitiesReq: object)|Yes
 /sys/capabilities-accessor|POST|N/A|N/A
 /sys/capabilities-self|POST|N/A|N/A
 /sys/config/auditing|GET|N/A|N/A
