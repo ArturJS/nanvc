@@ -71,11 +71,11 @@
     },
     "devDependencies": {
         "@types/chai": "4.2.9",
-        "@types/mocha": "5.2.7",
+        "@types/mocha": "7.0.1",
         "@types/sinon": "7.5.1",
         "chai": "4.2.0",
         "coveralls": "3.0.9",
-        "mocha": "6.2.0",
+        "mocha": "7.1.0",
         "mocha-typescript": "1.1.17",
         "nyc": "14.1.1",
         "rimraf": "3.0.0",
